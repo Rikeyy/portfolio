@@ -31,22 +31,22 @@ export default function JourneyStage({ reduced }: { reduced: boolean }) {
     <group position={[0, 0, 0]}>
       <instancedMesh ref={inst} args={[undefined, undefined, COUNT]}>
         <torusGeometry args={[4.2, 0.018, 6, 6]} />
-        <meshBasicMaterial color="#e50914" transparent opacity={0.8} />
+        <meshBasicMaterial color="#00d4ff" transparent opacity={0.8} />
       </instancedMesh>
       <mesh ref={core} position={[0, 0, -COUNT * GAP * 0.5]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.015, 0.015, COUNT * GAP, 6]} />
-        <meshBasicMaterial color="#ff3030" transparent opacity={0.7} />
+        <meshBasicMaterial color="#5ce1f5" transparent opacity={0.7} />
       </mesh>
       {orbs.map((p, i) => (
         <mesh key={i} position={[Math.sin(i * 2) * 1.2, Math.cos(i * 2) * 0.8, -p * COUNT * GAP * 0.9]}>
           <sphereGeometry args={[0.28, 24, 24]} />
-          <meshBasicMaterial color="#ff3030" />
+          <meshBasicMaterial color="#5ce1f5" />
         </mesh>
       ))}
       {orbs.map((p, i) => (
         <mesh key={'h' + i} position={[Math.sin(i * 2) * 1.2, Math.cos(i * 2) * 0.8, -p * COUNT * GAP * 0.9]}>
           <sphereGeometry args={[0.8, 24, 24]} />
-          <meshBasicMaterial color="#e50914" transparent opacity={0.12} depthWrite={false} blending={THREE.AdditiveBlending} />
+          <meshBasicMaterial color="#00d4ff" transparent opacity={0.12} depthWrite={false} blending={THREE.AdditiveBlending} />
         </mesh>
       ))}
     </group>

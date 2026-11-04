@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import Portrait from './Portrait'
+import ParticleSelf from './ParticleSelf'
 import GridFloor from './GridFloor'
 import { Fresnel } from './materials'
 import { pointer } from '../../lib/pointer'
@@ -45,16 +45,16 @@ export default function HeroStage({ reduced }: { reduced: boolean }) {
 
   return (
     <>
-      <Portrait stage={0} mode="hero" />
+      <ParticleSelf stage={0} mode="hero" />
       <group ref={halo}>
         <group ref={rings}>
           <mesh>
             <torusGeometry args={[3.5, 0.012, 8, 160]} />
-            <meshBasicMaterial color="#e50914" transparent opacity={0.55} />
+            <meshBasicMaterial color="#00d4ff" transparent opacity={0.55} />
           </mesh>
           <mesh scale={0.82}>
             <torusGeometry args={[3.5, 0.006, 8, 160]} />
-            <meshBasicMaterial color="#ff3030" transparent opacity={0.35} />
+            <meshBasicMaterial color="#5ce1f5" transparent opacity={0.35} />
           </mesh>
           <mesh scale={1.18}>
             <torusGeometry args={[3.5, 0.004, 8, 160]} />
@@ -70,13 +70,13 @@ export default function HeroStage({ reduced }: { reduced: boolean }) {
         </mesh>
         <mesh position={[6.3, -1.8, -1.5]} scale={1.3}>
           <octahedronGeometry args={[0.8, 0]} />
-          <Fresnel color="#ff3030" intensity={1.6} />
+          <Fresnel color="#5ce1f5" intensity={1.6} />
         </mesh>
       </group>
       <group ref={layer2} position={[0, 0, 1.2]}>
         <mesh position={[-3.6, -2.0, 0]}>
           <torusGeometry args={[0.35, 0.02, 8, 48]} />
-          <meshBasicMaterial color="#ff3030" transparent opacity={0.7} />
+          <meshBasicMaterial color="#5ce1f5" transparent opacity={0.7} />
         </mesh>
         <mesh position={[4.6, 2.6, 0]}>
           <icosahedronGeometry args={[0.22, 0]} />

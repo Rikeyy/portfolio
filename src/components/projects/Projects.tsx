@@ -10,6 +10,15 @@ import { openCase } from '../../lib/route'
 import { scroll } from '../../lib/scroll'
 import { ui } from '../../lib/store'
 
+// Each project brings its own colour; the site chrome stays cyan.
+const ACCENTS: Record<string, string> = {
+  'selangkah-digital-ecosystem': '#00d4ff',
+  'selcare-nursing-system': '#34d399',
+  'path-patient-assessment-triage-hub': '#a78bfa',
+  'selangkah-app-revamp': '#fbbf24',
+  'digital-government-platforms': '#f472b6',
+}
+
 export default function Projects() {
   const root = useRef<HTMLElement>(null)
 
@@ -65,7 +74,7 @@ export default function Projects() {
       </div>
 
       {PROJECTS.map((p) => (
-        <article key={p.slug} className="project" data-project aria-labelledby={`t-${p.slug}`}>
+        <article key={p.slug} className="project" data-project aria-labelledby={`t-${p.slug}`} style={{ '--accent': ACCENTS[p.slug] } as React.CSSProperties}>
           <div className="wrap project__grid">
             <div className="project__copy">
               <span className="project__num mono" aria-hidden="true">

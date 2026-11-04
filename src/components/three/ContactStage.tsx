@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import Portrait from './Portrait'
+import ParticleSelf from './ParticleSelf'
 import GridFloor from './GridFloor'
 import { viewSize } from './rig'
 
@@ -11,7 +11,7 @@ void main(){
   float d = length(vUv - 0.5) * 2.0;
   float g = pow(max(0.0, 1.0 - d), 2.2);
   float pulse = 0.85 + 0.15 * sin(uTime * 0.9);
-  gl_FragColor = vec4(vec3(0.9, 0.03, 0.07) * g * pulse, g * 0.9);
+  gl_FragColor = vec4(vec3(0.0, 0.83, 1.0) * g * pulse, g * 0.9);
 }`
 
 export default function ContactStage({ reduced }: { reduced: boolean }) {
@@ -73,7 +73,7 @@ export default function ContactStage({ reduced }: { reduced: boolean }) {
         {[3.4, 2.9, 2.4, 1.95].map((r, i) => (
           <mesh key={r} ref={(m) => (rings.current[i] = m)}>
             <torusGeometry args={[r, i === 0 ? 0.035 : 0.014, 12, 160]} />
-            <meshBasicMaterial color={i % 2 ? '#ff3030' : '#e50914'} transparent opacity={0.9 - i * 0.15} />
+            <meshBasicMaterial color={i % 2 ? '#5ce1f5' : '#00d4ff'} transparent opacity={0.9 - i * 0.15} />
           </mesh>
         ))}
         <mesh position={[0, 0, -0.5]}>
@@ -81,10 +81,10 @@ export default function ContactStage({ reduced }: { reduced: boolean }) {
           <meshBasicMaterial color="#ffffff" transparent opacity={0.18} />
         </mesh>
       </group>
-      <Portrait stage={6} mode="contact" />
+      <ParticleSelf stage={6} mode="contact" />
       <instancedMesh ref={shards} args={[undefined, undefined, seeds.length]}>
         <octahedronGeometry args={[1, 0]} />
-        <meshBasicMaterial color="#ff3030" wireframe transparent opacity={0.7} />
+        <meshBasicMaterial color="#5ce1f5" wireframe transparent opacity={0.7} />
       </instancedMesh>
       <GridFloor y={-3.6} opacity={0.8} reduced={reduced} />
     </>

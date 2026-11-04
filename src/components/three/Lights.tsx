@@ -22,9 +22,9 @@ export default function Lights() {
   })
   return (
     <>
-      <ambientLight intensity={0.25} color="#ffb4b4" />
-      <pointLight ref={key} color="#e50914" distance={40} decay={2} />
-      <pointLight ref={rim} color="#ffffff" distance={30} decay={2} />
+      <ambientLight intensity={0.25} color="#b4e4ff" />
+      <pointLight ref={key} color="#2f7bff" distance={40} decay={2} />
+      <pointLight ref={rim} color="#5ce1f5" distance={30} decay={2} />
     </>
   )
 }

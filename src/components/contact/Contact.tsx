@@ -3,10 +3,8 @@ import Words from '../ui/Words'
 import Button from '../ui/Button'
 import ContactForm from './ContactForm'
 import { site } from '../../data/site'
-import { useUI } from '../../lib/store'
 
 export default function Contact() {
-  const failed = useUI((s) => s.webglFailed)
   const noLink = 'Not configured yet — set it in .env (see .env.example)'
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
@@ -34,9 +32,7 @@ export default function Contact() {
             <ContactForm />
           </div>
         </div>
-        <div className="contact__portrait" aria-hidden={!failed}>
-          {failed && <img src="/images/rikey-cutout.webp" alt="Rikey Kurniawan" loading="lazy" width={800} height={800} />}
-        </div>
+        <div className="contact__portrait" aria-hidden="true" />
       </div>
     </section>
   )

@@ -2,7 +2,6 @@ import { ArrowDown } from 'lucide-react'
 import { site } from '../../data/site'
 import Button from '../ui/Button'
 import { scrollToId } from '../../lib/smooth'
-import { useUI } from '../../lib/store'
 
 const LINKS = [
   { label: 'GitHub', href: site.github },
@@ -11,18 +10,8 @@ const LINKS = [
 ].filter((l) => l.href)
 
 export default function Hero() {
-  const failed = useUI((s) => s.webglFailed)
   return (
     <section id="hero" className="hero" aria-label="Introduction">
-      {/* the interactive 3D portrait lives in the fixed canvas; this image is the accessible + no-WebGL fallback */}
-      <img
-        className={failed ? 'hero__fallback' : 'sr-only'}
-        src="/images/rikey-cutout.webp"
-        alt="Portrait of Rikey Kurniawan smiling, wearing an olive green shirt over a black tee"
-        width={800}
-        height={800}
-        
-      />
       <div className="hero__scrim" aria-hidden="true" />
       <div className="wrap hero__inner">
         <div className="hero__top mono" data-intro>

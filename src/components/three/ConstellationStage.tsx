@@ -124,12 +124,12 @@ export default function ConstellationStage({ reduced }: { reduced: boolean }) {
   return (
     <group ref={root}>
       <lineSegments geometry={lineGeo}>
-        <lineBasicMaterial color="#e50914" transparent opacity={0.28} />
+        <lineBasicMaterial color="#00d4ff" transparent opacity={0.28} />
       </lineSegments>
       {data.hubs.map((h, i) => (
         <mesh key={h.id} position={h.pos} ref={(m) => (hubRefs.current[i] = m)}>
           <icosahedronGeometry args={[0.34, 0]} />
-          <meshStandardMaterial color="#1a0204" emissive={h.color} emissiveIntensity={0.9} metalness={0.7} roughness={0.3} flatShading />
+          <meshStandardMaterial color="#04121a" emissive={h.color} emissiveIntensity={0.9} metalness={0.7} roughness={0.3} flatShading />
         </mesh>
       ))}
       {data.nodes.map((n) => (
@@ -137,7 +137,7 @@ export default function ConstellationStage({ reduced }: { reduced: boolean }) {
       ))}
       <mesh>
         <icosahedronGeometry args={[0.5, 1]} />
-        <meshBasicMaterial color="#e50914" wireframe transparent opacity={0.5} />
+        <meshBasicMaterial color="#00d4ff" wireframe transparent opacity={0.5} />
       </mesh>
     </group>
   )

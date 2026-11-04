@@ -1,11 +1,9 @@
 import { Suspense, useMemo } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { useTexture } from '@react-three/drei'
 import World from './World'
 import { getQuality } from '../../lib/device'
 import { ui } from '../../lib/store'
 
-useTexture.preload(['/images/rikey-cutout.webp', '/images/rikey-depth.webp'])
 
 export default function SceneCanvas() {
   const q = useMemo(getQuality, [])
@@ -17,15 +15,15 @@ export default function SceneCanvas() {
       eventSource={document.body}
       eventPrefix="client"
       onCreated={({ gl }) => {
-        gl.setClearColor('#050505')
+        gl.setClearColor('#05070a')
         gl.domElement.addEventListener('webglcontextlost', (e) => {
           e.preventDefault()
           ui.set({ webglFailed: true })
         })
       }}
     >
-      <color attach="background" args={['#050505']} />
-      <fog attach="fog" args={['#050505', 10, 40]} />
+      <color attach="background" args={['#05070a']} />
+      <fog attach="fog" args={['#071018', 9, 38]} />
       <Suspense fallback={null}>
         <World q={q} />
       </Suspense>

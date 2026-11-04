@@ -34,11 +34,11 @@ export default function AboutStage({ reduced }: { reduced: boolean }) {
         <Fresnel intensity={2.2} power={2.2} />
       </mesh>
       <lineSegments geometry={edges}>
-        <lineBasicMaterial color="#ff3030" transparent opacity={0.55} />
+        <lineBasicMaterial color="#5ce1f5" transparent opacity={0.55} />
       </lineSegments>
       <mesh>
         <icosahedronGeometry args={[0.7, 0]} />
-        <meshStandardMaterial color="#1a0204" emissive="#e50914" emissiveIntensity={0.9} metalness={0.8} roughness={0.25} />
+        <meshStandardMaterial color="#04121a" emissive="#00d4ff" emissiveIntensity={0.9} metalness={0.8} roughness={0.25} />
       </mesh>
       <mesh ref={ringA} rotation={[1.1, 0, 0]}>
         <torusGeometry args={[2.9, 0.012, 8, 160]} />
@@ -46,13 +46,13 @@ export default function AboutStage({ reduced }: { reduced: boolean }) {
       </mesh>
       <mesh ref={ringB} rotation={[0.4, 0.6, 0]}>
         <torusGeometry args={[3.3, 0.01, 8, 160]} />
-        <meshBasicMaterial color="#e50914" transparent opacity={0.6} />
+        <meshBasicMaterial color="#00d4ff" transparent opacity={0.6} />
       </mesh>
       <group ref={sats}>
         {[0, 1, 2].map((i) => (
           <mesh key={i} position={[Math.cos((i / 3) * Math.PI * 2) * 2.9, Math.sin(i) * 0.6, Math.sin((i / 3) * Math.PI * 2) * 2.9]}>
             <sphereGeometry args={[0.09, 16, 16]} />
-            <meshBasicMaterial color="#ff3030" />
+            <meshBasicMaterial color="#5ce1f5" />
           </mesh>
         ))}
       </group>

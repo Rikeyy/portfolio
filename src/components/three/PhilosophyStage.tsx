@@ -72,23 +72,23 @@ export default function PhilosophyStage({ reduced }: { reduced: boolean }) {
         </mesh>
         <mesh>
           <sphereGeometry args={[0.35, 24, 24]} />
-          <meshBasicMaterial color="#ff3030" />
+          <meshBasicMaterial color="#5ce1f5" />
         </mesh>
       </group>
       <group ref={b}>
         <instancedMesh ref={inst} args={[undefined, undefined, G * G * G]}>
           <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#1a0305" emissive="#e50914" emissiveIntensity={0.3} metalness={0.85} roughness={0.25} />
+          <meshStandardMaterial color="#04121a" emissive="#00d4ff" emissiveIntensity={0.3} metalness={0.85} roughness={0.25} />
         </instancedMesh>
       </group>
       <group ref={c}>
         <mesh>
           <torusKnotGeometry args={[1.25, 0.34, 220, 24, 2, 3]} />
-          <meshStandardMaterial color="#220306" emissive="#ff2d2d" emissiveIntensity={0.55} metalness={0.9} roughness={0.18} />
+          <meshStandardMaterial color="#04121a" emissive="#38d6f0" emissiveIntensity={0.55} metalness={0.9} roughness={0.18} />
         </mesh>
         <mesh scale={1.04}>
           <torusKnotGeometry args={[1.25, 0.34, 140, 16, 2, 3]} />
-          <Fresnel color="#ff5a5a" intensity={1.5} power={2.5} />
+          <Fresnel color="#8aeaf8" intensity={1.5} power={2.5} />
         </mesh>
       </group>
     </group>

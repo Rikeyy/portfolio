@@ -6,7 +6,7 @@ import { Fresnel } from './materials'
 import { scroll } from '../../lib/scroll'
 import { damp, clamp } from '../../lib/math'
 
-const TINTS = ['#e50914', '#ff3a2a', '#c4001d', '#ff2d55', '#ff6b5e']
+const TINTS = ['#00d4ff', '#34d399', '#a78bfa', '#fbbf24', '#f472b6']
 
 function useWeight(i: number) {
   const w = useRef(0)
@@ -39,7 +39,7 @@ function Network({ reduced }: { reduced: boolean }) {
       </mesh>
       <mesh>
         <sphereGeometry args={[0.4, 24, 24]} />
-        <meshBasicMaterial color="#ff5a5a" />
+        <meshBasicMaterial color="#8aeaf8" />
       </mesh>
     </group>
   )
@@ -73,7 +73,7 @@ function Blocks({ reduced }: { reduced: boolean }) {
     <group ref={g} rotation={[0.35, 0, 0]}>
       <instancedMesh ref={inst} args={[undefined, undefined, N * N]}>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#1a0305" emissive={TINTS[1]} emissiveIntensity={0.35} metalness={0.8} roughness={0.28} />
+        <meshStandardMaterial color="#04121a" emissive={TINTS[1]} emissiveIntensity={0.35} metalness={0.8} roughness={0.28} />
       </instancedMesh>
     </group>
   )
@@ -100,12 +100,12 @@ function Rings({ reduced }: { reduced: boolean }) {
       {[2.3, 1.7, 1.1].map((rad, i) => (
         <mesh key={rad} ref={(m) => (r.current[i] = m)}>
           <torusGeometry args={[rad, 0.045 - i * 0.008, 16, 120]} />
-          <meshStandardMaterial color="#1a0204" emissive={TINTS[2]} emissiveIntensity={0.8} metalness={0.9} roughness={0.2} />
+          <meshStandardMaterial color="#04121a" emissive={TINTS[2]} emissiveIntensity={0.8} metalness={0.9} roughness={0.2} />
         </mesh>
       ))}
       <mesh>
         <sphereGeometry args={[0.35, 24, 24]} />
-        <meshBasicMaterial color="#ff4d6a" />
+        <meshBasicMaterial color="#4da3ff" />
       </mesh>
     </group>
   )
@@ -128,7 +128,7 @@ function Phone({ reduced }: { reduced: boolean }) {
   return (
     <group ref={g}>
       <RoundedBox args={[1.5, 3, 0.18]} radius={0.16} smoothness={4}>
-        <meshStandardMaterial color="#120203" metalness={0.9} roughness={0.2} />
+        <meshStandardMaterial color="#04121a" metalness={0.9} roughness={0.2} />
       </RoundedBox>
       <mesh position={[0, 0, 0.095]}>
         <planeGeometry args={[1.32, 2.82]} />
@@ -137,7 +137,7 @@ function Phone({ reduced }: { reduced: boolean }) {
       {[0.9, 0.35, -0.2].map((y, i) => (
         <mesh key={y} position={[0, y, 0.1]}>
           <planeGeometry args={[1.0, i === 0 ? 0.6 : 0.3]} />
-          <meshBasicMaterial color={i === 0 ? '#ff2d55' : '#4a0a14'} />
+          <meshBasicMaterial color={i === 0 ? '#4da3ff' : '#0a2a3a'} />
         </mesh>
       ))}
       <group ref={orb}>
@@ -173,16 +173,16 @@ function Pillars({ reduced }: { reduced: boolean }) {
       {items.map((p, i) => (
         <mesh key={i} position={[p.x, p.h / 2 - 1.4, 0]}>
           <boxGeometry args={[0.38, p.h, 0.38]} />
-          <meshStandardMaterial color="#190305" emissive={TINTS[4]} emissiveIntensity={0.25} metalness={0.85} roughness={0.25} />
+          <meshStandardMaterial color="#04121a" emissive={TINTS[4]} emissiveIntensity={0.25} metalness={0.85} roughness={0.25} />
         </mesh>
       ))}
       <mesh position={[0, 1.95 - 0.1, 0]}>
         <boxGeometry args={[6.2, 0.14, 0.7]} />
-        <meshStandardMaterial color="#220305" emissive={TINTS[4]} emissiveIntensity={0.5} metalness={0.9} roughness={0.2} />
+        <meshStandardMaterial color="#04121a" emissive={TINTS[4]} emissiveIntensity={0.5} metalness={0.9} roughness={0.2} />
       </mesh>
       <mesh position={[0, -1.5, 0]}>
         <boxGeometry args={[6.4, 0.14, 1.0]} />
-        <meshStandardMaterial color="#190305" metalness={0.9} roughness={0.3} />
+        <meshStandardMaterial color="#04121a" metalness={0.9} roughness={0.3} />
       </mesh>
     </group>
   )

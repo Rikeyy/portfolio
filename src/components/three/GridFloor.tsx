@@ -14,7 +14,7 @@ void main(){
   float d = length(vUv - 0.5) * 2.0;
   float fade = smoothstep(1.0, 0.15, d);
   float a = (line*0.35 + major*0.35) * fade * uOpacity;
-  gl_FragColor = vec4(vec3(0.9,0.05,0.08), a);
+  gl_FragColor = vec4(vec3(0.0, 0.83, 1.0), a);
 }`
 
 export default function GridFloor({ y = -3, opacity = 1, reduced }: { y?: number; opacity?: number; reduced: boolean }) {

@@ -26,7 +26,7 @@ interface FresnelProps {
 }
 
 /** Additive fresnel rim material — cheap red atmospheric glow for 3D forms. */
-export function Fresnel({ color = '#e50914', power = 2.4, intensity = 1.6, base = 0.02 }: FresnelProps) {
+export function Fresnel({ color = '#00d4ff', power = 2.4, intensity = 1.6, base = 0.02 }: FresnelProps) {
   const uniforms = useMemo(
     () => ({
       uColor: { value: new THREE.Color(color) },

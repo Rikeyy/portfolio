@@ -3,7 +3,7 @@ import { gsap } from '../../lib/smooth'
 import { intro, ui, useUI } from '../../lib/store'
 import { getQuality } from '../../lib/device'
 
-/** Black screen → red light → portrait dissolve → typography. */
+/** Black screen → cyan light → particle figure assembles → typography. */
 export default function Loader() {
   const ready = useUI((s) => s.ready)
   const root = useRef<HTMLDivElement>(null)
